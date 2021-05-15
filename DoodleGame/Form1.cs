@@ -32,7 +32,18 @@ namespace DoodleGame
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = true;
+            }
+            if (e.KeyCode == Keys.Space && jumping == false)
+            {
+                jumping = true;
+            }
         }
 
         public Form1()
