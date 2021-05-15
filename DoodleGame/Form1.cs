@@ -14,8 +14,8 @@ namespace DoodleGame
     {
         bool goLeft, goRight, jumping, isGameOver;
 
-        int jumpSpeed;
-        int force;
+        int jumpSpeed=10;
+        int force=8;
         int score = 0;
         int playerSpeed = 7;
 
@@ -26,6 +26,23 @@ namespace DoodleGame
         int enemyTwoSpeed = 3;
 
         private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = false;
+            }
+
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = false;
+            }
+            if (jumping)
+            {
+                jumping = false;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -53,7 +70,44 @@ namespace DoodleGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            player.Top += jumpSpeed;
 
+            if (jumping && force < 0)
+            {
+                jumping = false;
+            }
+
+            if (goLeft)
+            {
+                player.Left -= 5;
+            }
+
+            if (goRight)
+            {
+                player.Left += 5;
+            }
+
+            if (jumping)
+            {
+                jumpSpeed = -11;
+                force -= 1;
+            }
+            else
+            {
+                jumpSpeed = 12;
+            }
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && x.Tag == "platform")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds) && !jumping)
+                    {
+                        force = 8;
+                        player.Top = x.Top - player.Height;
+                    }
+                }
+            }
         }
     }
 }
