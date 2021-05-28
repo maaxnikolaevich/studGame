@@ -22,8 +22,10 @@ namespace DoodleGame
         public int horizontalSpeed = 5;
         public int verticalSpeed = 3;
 
-        public int enemyOneSpeed = 5;
-        public int enemyTwoSpeed = 3;
+        public int monster1Speed = 5;
+        public int monster3Speed = 3;
+        public int monster4Speed = 3;
+        public int monster5Speed = 3;
 
         Image player;
 
@@ -160,8 +162,50 @@ namespace DoodleGame
                 horizontalSpeed = -horizontalSpeed;
             }
 
+            
+            platform12.Left -= horizontalSpeed;
 
-        }
+            if (platform12.Left < 0 || platform12.Left + platform12.Width > this.ClientSize.Width)
+            {
+                horizontalSpeed = -horizontalSpeed;
+            }
+            
+            
+            platform7.Top += verticalSpeed;
+
+            if (platform7.Top < 220 || platform7.Top > 434)
+            {
+                verticalSpeed = -verticalSpeed;
+            }
+
+            monster1.Left -= monster1Speed;
+
+            if (monster1.Left < platform2.Left || monster1.Left + monster1.Width > platform2.Left + platform2.Width)
+            {
+                monster1Speed = -monster1Speed;
+            }
+
+            
+            monster3.Left -= monster3Speed;
+            if (monster3.Left < platform5.Left || monster3.Left + monster3.Width > platform5.Left + platform5.Width)
+            {
+                monster3Speed = -monster3Speed;
+            }
+
+            
+            monster4.Left += monster4Speed;
+            if (monster4.Left < platform8.Left || monster4.Left + monster4.Width > platform8.Left + platform8.Width)
+            {
+                monster4Speed = -monster4Speed;
+            }
+            
+            monster5.Left -= monster5Speed;
+            if (monster5.Left < platform11.Left || monster5.Left + monster5.Width > platform11.Left + platform11.Width)
+            {
+                monster5Speed = -monster5Speed;
+            }
+            
+        } 
         private void RestartGame()
         {
             jumping = false;
@@ -189,7 +233,7 @@ namespace DoodleGame
             //        break;
             //    case "A":
             //        currAnimation = 4;
-            //        break;
+            //        break;    2Ё1АВЧ
             //}
         }
 
