@@ -640,7 +640,7 @@
             this.pictureBox26.Size = new System.Drawing.Size(27, 25);
             this.pictureBox26.TabIndex = 46;
             this.pictureBox26.TabStop = false;
-            this.pictureBox26.Tag = "cion";
+            this.pictureBox26.Tag = "coin";
             // 
             // pictureBox27
             // 
