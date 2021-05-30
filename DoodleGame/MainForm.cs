@@ -22,10 +22,11 @@ namespace DoodleGame
         public int horizontalSpeed = 5;
         public int verticalSpeed = 3;
 
-        public int monster1Speed = 5;
-        public int monster3Speed = 3;
-        public int monster4Speed = 3;
-        public int monster5Speed = 3;
+        public int monster1Speed = 2;
+        public int monster2Speed = 2;
+        public int monster3Speed = 2;
+        public int monster4Speed = 2;
+        public int monster5Speed = 2;
 
         Image player;
 
@@ -131,7 +132,6 @@ namespace DoodleGame
                         }
                         x.BringToFront();
                     }
-                       
                 }
 
                 if((string)x.Tag=="coin")
@@ -204,7 +204,13 @@ namespace DoodleGame
             {
                 monster5Speed = -monster5Speed;
             }
-            
+
+            monster2.Left -= monster2Speed;
+            if (monster2.Left < platform4.Left || monster2.Left + monster2.Width > platform4.Left + platform4.Width)
+            {
+                monster2Speed = -monster2Speed;
+            }
+
         } 
         private void RestartGame()
         {
@@ -222,6 +228,8 @@ namespace DoodleGame
                     x.Visible = true;
                 }
             }
+
+
         }
 
         private void keyboard(object sender, KeyEventArgs e)
