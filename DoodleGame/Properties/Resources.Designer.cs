@@ -63,9 +63,9 @@ namespace DoodleGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player {
+        internal static System.Drawing.Bitmap sprite {
             get {
-                object obj = ResourceManager.GetObject("player", resourceCulture);
+                object obj = ResourceManager.GetObject("sprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
