@@ -34,18 +34,28 @@ namespace DoodleGame
     {
         
         public Physics physics;
-        public Image player;
+        public Image playerL;
+        public Image playerR;
+        public Image part = new Bitmap(300, 300);
+        public int CurrAnim;
+
         public Player()
         {
-            player = Properties.Resources.player1;
+            playerL = Properties.Resources.player1;
+            playerR = Properties.Resources.player2;
             physics = new Physics(new PointF(100, 350), new Size(40, 40));
         }
 
+
         public void DrawSprite(Graphics g)
         {
-            g.DrawImage(player, physics.transform.position.X, physics.transform.position.Y, physics.transform.size.Width, physics.transform.size.Height);
-            
+            if (CurrAnim == 1)
+            {
+                g.DrawImage(playerL, physics.transform.position.X, physics.transform.position.Y, physics.transform.size.Width, physics.transform.size.Height);
+            }
+            else g.DrawImage(playerR, physics.transform.position.X, physics.transform.position.Y, physics.transform.size.Width, physics.transform.size.Height);
         }
+
     }
 
     public class Enemy

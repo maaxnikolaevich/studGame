@@ -51,9 +51,11 @@ namespace DoodleGame
             {
                 case "Right":
                     player.physics.dx = 10;
+                    player.CurrAnim = 2;
                     break;
                 case "Left":
                     player.physics.dx = -10;
+                    player.CurrAnim = 1;
                     break;
             }
         }
