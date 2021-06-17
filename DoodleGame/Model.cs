@@ -10,24 +10,45 @@ namespace DoodleGame
     public class Platform
     {
         public Transform transform;
+        Image platform;
+        public int sizeX;
+        public int sizeY;
+        public bool touchedPl;
 
-        public Platform(PointF pos, Size size)
+        public Platform(PointF position)
         {
-            transform = new Transform(pos, size);
+            platform = Properties.Resources.platform;
+            sizeX = 100;
+            sizeY = 20;
+            transform = new Transform(position, new Size(sizeX, sizeY));
+            touchedPl = false;
         }
 
         public void DrawSprite(Graphics g)
         {
-            g.DrawImage(Controller.spritesheet, new Rectangle(new Point((int)transform.position.X, (int)transform.position.Y), new Size(transform.size.Width, transform.size.Height)), 2300, 112, 100, 17, GraphicsUnit.Pixel);
+            g.DrawImage(platform, transform.position.X, transform.position.Y, transform.size.Width, transform.size.Height);
+        }
+    }
+
+    public class Player
+    {
+        
+        public Physics physics;
+        public Image player;
+        public Player()
+        {
+            player = Properties.Resources.player1;
+            physics = new Physics(new PointF(100, 350), new Size(40, 40));
+        }
+
+        public void DrawSprite(Graphics g)
+        {
+            g.DrawImage(player, physics.transform.position.X, physics.transform.position.Y, physics.transform.size.Width, physics.transform.size.Height);
+            
         }
     }
 
     public class Enemy
-    {
-
-    }
-
-    public class Map
     {
 
     }

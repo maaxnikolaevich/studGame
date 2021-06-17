@@ -28,35 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.playerImg = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.playerImg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // playerImg
-            // 
-            this.playerImg.BackColor = System.Drawing.SystemColors.Menu;
-            this.playerImg.Location = new System.Drawing.Point(27, 595);
-            this.playerImg.Name = "playerImg";
-            this.playerImg.Size = new System.Drawing.Size(25, 41);
-            this.playerImg.TabIndex = 1;
-            this.playerImg.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(529, 661);
-            this.Controls.Add(this.playerImg);
             this.Name = "MainForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.playerImg)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox playerImg;
     }
 }
 
