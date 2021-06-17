@@ -36,7 +36,7 @@ namespace DoodleGame
             Controller.AddPlatform(new System.Drawing.PointF(100, 400));
             Controller.startPlatformPosY = 400;
             Controller.score = 0;
-            Controller.GenerateStartSequence();
+            Controller.GenerateListPlatforms();
             player = new Player();
         }
 
