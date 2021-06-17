@@ -22,7 +22,7 @@ namespace DoodleGame
         public static void GenerateStartSequence()
         {
             Random r = new Random();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 int x = r.Next(0, 270);
                 int y = r.Next(30, 40);
@@ -33,7 +33,7 @@ namespace DoodleGame
             }
         }
 
-        public static void GenerateRandomPlatform()
+        public static void SpawnerPlatform()
         {
             ClearPlatforms();
             Random r = new Random();
@@ -56,7 +56,7 @@ namespace DoodleGame
     {
         public Transform transform;
         float gravity;
-        float a;
+        float jumpSpeed;
 
         public float dx;
 
@@ -64,7 +64,7 @@ namespace DoodleGame
         {
             transform = new Transform(position, size);
             gravity = 0;
-            a = 0.4f;
+            jumpSpeed = 0.5f;
             dx = 0;
         }
 
@@ -82,7 +82,7 @@ namespace DoodleGame
             if (transform.position.Y < 700)
             {
                 transform.position.Y += gravity;
-                gravity += a;
+                gravity += jumpSpeed;
 
                 Collide();
             }
@@ -102,8 +102,8 @@ namespace DoodleGame
                             AddForce();
                             if (!platform.touchedPl)
                             {
-                                Controller.score += 10;
-                                Controller.GenerateRandomPlatform();
+                                Controller.score += 1;
+                                Controller.SpawnerPlatform();
                                 platform.touchedPl = true;
                             }
                         }

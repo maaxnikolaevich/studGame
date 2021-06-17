@@ -60,7 +60,7 @@ namespace DoodleGame
 
         private void Update(object sender, EventArgs e)
         {
-            this.Text = "Doodle Jump: Score - " + Controller.score;
+            this.Text = "Счет: " + Controller.score;
 
             if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
                 Init();
