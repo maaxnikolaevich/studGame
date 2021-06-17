@@ -18,20 +18,20 @@ namespace DoodleGame
         {
             InitializeComponent();
             Init();
+        }
+
+        public void Init()
+        {
             gameTimer = new Timer();
-            gameTimer.Interval = 10;
+            gameTimer.Interval = 2;
             gameTimer.Tick += new EventHandler(Update);
             gameTimer.Start();
             this.KeyDown += new KeyEventHandler(OnKeyboardPressed);
             this.KeyUp += new KeyEventHandler(OnKeyboardUp);
             this.BackgroundImage = Properties.Resources.back;
             this.Height = 600;
-            this.Width = 330;
+            this.Width = 400;
             this.Paint += new PaintEventHandler(OnRepaint);
-        }
-
-        public void Init()
-        {
             Controller.platforms = new System.Collections.Generic.List<Platform>();
             Controller.AddPlatform(new System.Drawing.PointF(100, 400));
             Controller.startPlatformPosY = 400;
@@ -40,29 +40,28 @@ namespace DoodleGame
             player = new Player();
         }
 
-        private void OnKeyboardUp(object sender, KeyEventArgs e)
-        {
-            player.physics.dx = 0;
-        }
-
         private void OnKeyboardPressed(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode.ToString())
             {
                 case "Right":
                     player.physics.dx = 10;
-                    player.CurrAnim = 2;
+                    player.currAnim = 2;
                     break;
                 case "Left":
                     player.physics.dx = -10;
-                    player.CurrAnim = 1;
+                    player.currAnim = 1;
                     break;
             }
+        }
+        private void OnKeyboardUp(object sender, KeyEventArgs e)
+        {
+            player.physics.dx = 0;
         }
 
         private void Update(object sender, EventArgs e)
         {
-            this.Text = "Счет: " + Controller.score;
+            txtScore.Text = "Счет: " + Controller.score;
 
             if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
                 Init();

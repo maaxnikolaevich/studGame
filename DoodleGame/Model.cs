@@ -18,7 +18,7 @@ namespace DoodleGame
         public Platform(PointF position)
         {
             platform = Properties.Resources.platform;
-            sizeX = 80;
+            sizeX = 100;
             sizeY = 15;
             transform = new Transform(position, new Size(sizeX, sizeY));
             touchedPl = false;
@@ -36,8 +36,7 @@ namespace DoodleGame
         public Physics physics;
         public Image playerL;
         public Image playerR;
-        public Image part = new Bitmap(300, 300);
-        public int CurrAnim;
+        public int currAnim;
 
         public Player()
         {
@@ -49,7 +48,7 @@ namespace DoodleGame
 
         public void DrawSprite(Graphics g)
         {
-            if (CurrAnim == 1)
+            if (currAnim == 1)
             {
                 g.DrawImage(playerL, physics.transform.position.X, physics.transform.position.Y, physics.transform.size.Width, physics.transform.size.Height);
             }

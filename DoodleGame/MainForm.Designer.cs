@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // txtScore
+            // 
+            this.txtScore.AutoSize = true;
+            this.txtScore.BackColor = System.Drawing.Color.White;
+            this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtScore.Location = new System.Drawing.Point(12, 9);
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(56, 20);
+            this.txtScore.TabIndex = 0;
+            this.txtScore.Text = "Счет:";
             // 
             // MainForm
             // 
@@ -36,14 +48,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(529, 661);
+            this.Controls.Add(this.txtScore);
             this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label txtScore;
     }
 }
 
