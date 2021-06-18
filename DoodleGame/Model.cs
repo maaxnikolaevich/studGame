@@ -31,8 +31,7 @@ namespace DoodleGame
     }
 
     public class Player
-    {
-        
+    {   
         public Physics physics;
         public Image playerL;
         public Image playerR;
