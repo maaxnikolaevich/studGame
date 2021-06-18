@@ -29,18 +29,30 @@
         private void InitializeComponent()
         {
             this.txtScore = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtScore
             // 
             this.txtScore.AutoSize = true;
             this.txtScore.BackColor = System.Drawing.Color.White;
-            this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtScore.Location = new System.Drawing.Point(12, 9);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(56, 20);
+            this.txtScore.Size = new System.Drawing.Size(42, 20);
             this.txtScore.TabIndex = 0;
             this.txtScore.Text = "Счет:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Монеты:";
             // 
             // MainForm
             // 
@@ -48,6 +60,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(529, 661);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtScore);
             this.DoubleBuffered = true;
             this.Name = "MainForm";
@@ -60,6 +73,7 @@
         #endregion
 
         private System.Windows.Forms.Label txtScore;
+        private System.Windows.Forms.Label label1;
     }
 }
 

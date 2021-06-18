@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace DoodleGame
 {
     public static class Controller
     {
         public static List<Platform> platforms;
+        public static List<Coin> coins;
         public static int startPlatformPosY = 400;
         public static int score = 0;
 
@@ -19,7 +21,13 @@ namespace DoodleGame
             platforms.Add(platform);
         }
 
-        public static void GenerateListPlatforms()
+        public static void AddCoin(PointF position)
+        {
+            Coin coin = new Coin(position);
+            coins.Add(coin);
+        }
+
+        public static void GenerateListCoins()
         {
             Random r = new Random();
             for (int i = 0; i < 5; i++)
@@ -28,9 +36,33 @@ namespace DoodleGame
                 int y = r.Next(30, 40);
                 startPlatformPosY -= y;
                 PointF position = new PointF(x, startPlatformPosY);
+                Coin coin = new Coin(position);
+                coins.Add(coin);
+            }
+        }
+
+        public static void GenerateListPlatforms()
+        {
+            Random r = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                int x = r.Next(0, 270);
+                int y = r.Next(120, 160);
+                startPlatformPosY -= y;
+                PointF position = new PointF(x, startPlatformPosY);
                 Platform platform = new Platform(position);
                 platforms.Add(platform);
             }
+        }
+
+        public static void SpawnerCoin()
+        {
+            ClearPlatforms();
+            Random r = new Random();
+            int x = r.Next(0, 270);
+            PointF position = new PointF(x, startPlatformPosY);
+            Coin coin = new Coin(position);
+            coins.Add(coin);
         }
 
         public static void SpawnerPlatform()
@@ -51,6 +83,7 @@ namespace DoodleGame
                     platforms.RemoveAt(i);
             }
         }
+
     }
     public class Physics
     {
@@ -114,7 +147,7 @@ namespace DoodleGame
 
         public void AddForce()
         {
-            gravity = -9;
+            gravity = -12;
         }
     }
 }

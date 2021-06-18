@@ -57,6 +57,26 @@ namespace DoodleGame
 
     }
 
+    public class Coin
+    {
+        public Transform transform;
+        Image coin;
+        public int sizeX;
+        public int sizeY;
+
+        public Coin(PointF position)
+        {
+            coin = Properties.Resources.coin;
+            sizeX = 5;
+            sizeY = 5;
+            transform = new Transform(position, new Size(sizeX, sizeY));
+        }
+        public void DrawSprite(Graphics g)
+            {
+                g.DrawImage(coin, transform.position.X, transform.position.Y, transform.size.Width, transform.size.Height);
+            }
+    }
+
     public class Enemy
     {
 

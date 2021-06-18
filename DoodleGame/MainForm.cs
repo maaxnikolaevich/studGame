@@ -68,7 +68,6 @@ namespace DoodleGame
 
             player.physics.ApplyPhysics();
             FollowPlayer();
-
             Invalidate();
         }
 
