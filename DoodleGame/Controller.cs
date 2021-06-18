@@ -36,7 +36,7 @@ namespace DoodleGame
             for (int i = 0; i < 3; i++)
             {
                 int x = r.Next(0, 270);
-                int y = r.Next(130, 170);
+                int y = r.Next(120, 160);
                 startCoinPosY -= y;
                 PointF position = new PointF(x, startCoinPosY);
                 Coin coin = new Coin(position);
@@ -48,7 +48,7 @@ namespace DoodleGame
         public static void GenerateListPlatforms()
         {
             Random r = new Random();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int x = r.Next(0, 270);
                 int y = r.Next(120, 160);
