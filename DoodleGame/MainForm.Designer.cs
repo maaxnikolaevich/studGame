@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtScore = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.coinScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtScore
@@ -43,16 +43,16 @@
             this.txtScore.TabIndex = 0;
             this.txtScore.Text = "Счет:";
             // 
-            // label1
+            // coinScore
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Монеты:";
+            this.coinScore.AutoSize = true;
+            this.coinScore.BackColor = System.Drawing.Color.White;
+            this.coinScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.coinScore.Location = new System.Drawing.Point(12, 39);
+            this.coinScore.Name = "coinScore";
+            this.coinScore.Size = new System.Drawing.Size(62, 20);
+            this.coinScore.TabIndex = 1;
+            this.coinScore.Text = "Монеты:";
             // 
             // MainForm
             // 
@@ -60,7 +60,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(529, 661);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.coinScore);
             this.Controls.Add(this.txtScore);
             this.DoubleBuffered = true;
             this.Name = "MainForm";
@@ -73,7 +73,7 @@
         #endregion
 
         private System.Windows.Forms.Label txtScore;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label coinScore;
     }
 }
 
