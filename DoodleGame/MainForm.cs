@@ -34,10 +34,16 @@ namespace DoodleGame
             this.Paint += new PaintEventHandler(OnRepaint);
             Controller.platforms = new System.Collections.Generic.List<Platform>();
             Controller.AddPlatform(new System.Drawing.PointF(100, 400));
+            Controller.coins = new System.Collections.Generic.List<Coin>();
+            Controller.startCoinPosY = 355;
             Controller.startPlatformPosY = 400;
             Controller.score = 0;
+            Controller.money = 0;
             Controller.GenerateListPlatforms();
+            Controller.GenerateListCoins();
             player = new Player();
+            //MessageBox.Show(Controller.coins.Count.ToString());
+            //MessageBox.Show(Controller.platforms.Count.ToString());
         }
 
         private void OnKeyboardPressed(object sender, KeyEventArgs e)
@@ -62,23 +68,29 @@ namespace DoodleGame
         private void Update(object sender, EventArgs e)
         {
             txtScore.Text = "Счет: " + Controller.score;
-
+            coinScore.Text= "Монеты: " + Controller.money;
             if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
                 Init();
 
-            player.physics.ApplyPhysics();
+            player.physics.CalculatePhysics(); 
             FollowPlayer();
             Invalidate();
         }
 
         public void FollowPlayer()
         {
-            int offset = 400 - (int)player.physics.transform.position.Y;
+            int offset = 350 - (int)player.physics.transform.position.Y;
             player.physics.transform.position.Y += offset;
             for (int i = 0; i < Controller.platforms.Count; i++)
             {
                 var platform = Controller.platforms[i];
                 platform.transform.position.Y += offset;
+            }
+
+            for (int i = 0; i < Controller.coins.Count; i++)
+            {
+                var coin = Controller.coins[i];
+                coin.transform.position.Y += offset;
             }
         }
 
@@ -89,6 +101,11 @@ namespace DoodleGame
             {
                 for (int i = 0; i < Controller.platforms.Count; i++)
                     Controller.platforms[i].DrawSprite(g);
+            }
+            if (Controller.coins.Count > 0)
+            {
+                for (int i = 0; i < Controller.coins.Count; i++)
+                    Controller.coins[i].DrawSprite(g);
             }
             player.DrawSprite(g);
         }

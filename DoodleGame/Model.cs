@@ -63,12 +63,13 @@ namespace DoodleGame
         Image coin;
         public int sizeX;
         public int sizeY;
+        public bool touchedPlCoin = false;
 
         public Coin(PointF position)
         {
             coin = Properties.Resources.coin;
-            sizeX = 5;
-            sizeY = 5;
+            sizeX = 40;
+            sizeY = 50;
             transform = new Transform(position, new Size(sizeX, sizeY));
         }
         public void DrawSprite(Graphics g)
