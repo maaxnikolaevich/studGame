@@ -18,8 +18,8 @@ namespace DoodleGame
         public Platform(PointF position)
         {
             sprite = Properties.Resources.platform;
-            sizeX = 100;
-            sizeY = 15;
+            sizeX = 120;
+            sizeY = 18;
             transform = new Transform(position, new Size(sizeX, sizeY));
             touchedPl = false;
         }
