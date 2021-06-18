@@ -66,7 +66,7 @@ namespace DoodleGame
 
             if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
                 Init();
-            //if(Controller.enemies.Count > 0)
+            //if (Controller.enemies.Count > 0)
             //{
             //    for (int i = 0; i < Controller.enemies.Count; i++)
             //    {
