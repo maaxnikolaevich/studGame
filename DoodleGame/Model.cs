@@ -77,8 +77,26 @@ namespace DoodleGame
             }
     }
 
-    public class Enemy
+    public class Enemy: Player
     {
-
+        public Image enemy;
+        public Enemy(PointF pos, int type)
+        {
+            switch(type)
+            {
+                case 1:
+                    enemy = Properties.Resources.monster1;
+                    physics = new Physics(pos, new Size(40, 40));
+                    break;
+                case 2:
+                    enemy = Properties.Resources.monster2;
+                    physics = new Physics(pos, new Size(40, 40));
+                    break;
+                case 3:
+                    enemy = Properties.Resources.monster3;
+                    physics = new Physics(pos, new Size(40, 40));
+                    break;
+            }
+        }
     }
 }

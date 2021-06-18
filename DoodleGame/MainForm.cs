@@ -37,6 +37,7 @@ namespace DoodleGame
             Controller.startPlatformPosY = 400;
             Controller.score = 0;
             Controller.GenerateListPlatforms();
+            Controller.enemies.Clear();
             player = new Player();
         }
 
@@ -65,7 +66,15 @@ namespace DoodleGame
 
             if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
                 Init();
-
+            //if(Controller.enemies.Count > 0)
+            //{
+            //    for (int i = 0; i < Controller.enemies.Count; i++)
+            //    {
+            //        if (Controller.enemies[i].physics.StandartCollide())
+            //            Controller.RemoveEnemy(i);
+            //        break;
+            //    }
+            //}
             player.physics.ApplyPhysics();
             FollowPlayer();
             Invalidate();
@@ -80,6 +89,11 @@ namespace DoodleGame
                 var platform = Controller.platforms[i];
                 platform.transform.position.Y += offset;
             }
+            for (int i = 0; i < Controller.enemies.Count; i++)
+            {
+                var enemy = Controller.enemies[i];
+                enemy.physics.transform.position.Y += offset;
+            }
         }
 
         private void OnRepaint(object sender, PaintEventArgs e)
@@ -91,6 +105,12 @@ namespace DoodleGame
                     Controller.platforms[i].DrawSprite(g);
             }
             player.DrawSprite(g);
+            if (Controller.enemies.Count > 0)
+            {
+                for (int i = 0; i < Controller.enemies.Count; i++)
+                    Controller.enemies[i].DrawSprite(g);
+            }
+            
         }
     }
 }

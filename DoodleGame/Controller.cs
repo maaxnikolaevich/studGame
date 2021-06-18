@@ -12,6 +12,7 @@ namespace DoodleGame
     {
         public static List<Platform> platforms;
         public static List<Coin> coins;
+        public static List<Enemy> enemies = new List<Enemy>();
         public static int startPlatformPosY = 400;
         public static int score = 0;
 
@@ -73,6 +74,39 @@ namespace DoodleGame
             PointF position = new PointF(x, startPlatformPosY);
             Platform platform = new Platform(position);
             platforms.Add(platform);
+
+            var c = r.Next(1, 10);
+            if(c == 1)
+            {
+                SpawnerEnemy(platform);
+            }
+        }
+
+        public static void SpawnerEnemy(Platform platform)
+        {
+            Random r = new Random();
+            var enemyType = r.Next(1, 4);
+            switch(enemyType)
+            {
+                case 1:
+                    var enemy = new Enemy(new PointF(platform.transform.position.X + (platform.sizeX / 2) / 2, platform.transform.position.Y - 40), enemyType);
+                    enemies.Add(enemy);
+                    break;
+                case 2:
+                    enemy = new Enemy(new PointF(platform.transform.position.X + (platform.sizeX / 2) / 2, platform.transform.position.Y - 40), enemyType);
+                    enemies.Add(enemy);
+                    break;
+                case 3:
+                    enemy = new Enemy(new PointF(platform.transform.position.X + (platform.sizeX / 2) / 2, platform.transform.position.Y - 40), enemyType);
+                    enemies.Add(enemy);
+                    break;
+
+            }
+        }
+
+        public static void RemoveEnemy(int i)
+        {
+            enemies.RemoveAt(i);
         }
 
         public static void ClearPlatforms()
@@ -81,6 +115,11 @@ namespace DoodleGame
             {
                 if (platforms[i].transform.position.Y >= 700)
                     platforms.RemoveAt(i);
+            }
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i].physics.transform.position.Y >= 700)
+                    enemies.RemoveAt(i);
             }
         }
 
@@ -120,6 +159,25 @@ namespace DoodleGame
                 Collide();
             }
         }
+
+        //public bool StandartCollidePlayer()
+        //{
+        //    for (int i = 0; i < Controller.enemies.Count; i++)
+        //    {
+        //        var enemy = Controller.enemies[i];
+        //        PointF delta = new PointF();
+        //        delta.X = (transform.position.X + transform.size.Width / 2) - (enemy.physics.transform.position.X + enemy.physics.transform.size.Width / 2);
+        //        delta.Y = (transform.position.Y + transform.size.Height / 2) - (enemy.physics.transform.position.Y + enemy.physics.transform.size.Height / 2);
+        //        if(Math.Abs(delta.X)) <= transform.size.Width / 2 + enemy.physics.transform.size.Width / 2
+        //        {
+        //            if (Math.Abs(delta.Y)) <= transform.size.Height / 2 + enemy.physics.transform.size.Height / 2
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    return false;
+        //}
 
         public void Collide()
         {
