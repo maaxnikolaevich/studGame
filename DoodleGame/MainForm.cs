@@ -68,7 +68,7 @@ namespace DoodleGame
         {
             txtScore.Text = "Счет: " + Controller.score;
             coinScore.Text = "Монеты: " + Controller.money;
-            if (player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200)
+            if ((player.physics.transform.position.Y >= Controller.platforms[0].transform.position.Y + 200) || player.physics.StandartCollidePlayer())
                 Init();
             //if (Controller.enemies.Count > 0)
             //{
